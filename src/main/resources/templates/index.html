@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:each="person : ${persons}">
+    <h2 th:text="${person.name}"></h2>
+    <h6 th:inline="text">  identified by [[${person.ssn}]]</h6>
+        <th:block th:object="${person.passport}" >
+            <h3 th:inline="text"> with a passport number of <b>[[*{PassportNumber}]]</b> on [[*{PassportDate}]].</h3>
+        </th:block>
+</div>
+</body>
+</html>
